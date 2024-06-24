@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useMemo, useState } from 'react';
+import {FC, memo, useCallback, useMemo, useState} from 'react';
 import emailjs from 'emailjs-com';
 
 interface FormData {
@@ -14,20 +14,20 @@ const ContactForm: FC = memo(() => {
       email: '',
       message: '',
     }),
-    []
+    [],
   );
 
   const [data, setData] = useState<FormData>(defaultData);
 
   const onChange = useCallback(
     <T extends HTMLInputElement | HTMLTextAreaElement>(event: React.ChangeEvent<T>): void => {
-      const { name, value } = event.target;
+      const {name, value} = event.target;
 
-      const fieldData: Partial<FormData> = { [name]: value };
+      const fieldData: Partial<FormData> = {[name]: value};
 
-      setData((prevData) => ({ ...prevData, ...fieldData }));
+      setData(prevData => ({...prevData, ...fieldData}));
     },
-    []
+    [],
   );
 
   const handleSendMessage = useCallback(
@@ -39,7 +39,7 @@ const ContactForm: FC = memo(() => {
           'service_4o9dphe',
           'template_u835whk',
           data as unknown as Record<string, unknown>,
-          'thHbgF4RAXeUQfeuL'
+          'thHbgF4RAXeUQfeuL',
         );
         console.log('Email sent successfully:', result.text);
         alert('Email sent successfully!');
@@ -48,7 +48,7 @@ const ContactForm: FC = memo(() => {
         alert('Failed to send email.');
       }
     },
-    [data]
+    [data],
   );
 
   const inputClasses =
@@ -78,8 +78,7 @@ const ContactForm: FC = memo(() => {
       <button
         aria-label="Submit contact form"
         className="w-max rounded-full border-2 border-orange-600 bg-stone-900 px-4 py-2 text-sm font-medium text-white shadow-md outline-none hover:bg-stone-800 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:ring-offset-stone-800"
-        type="submit"
-      >
+        type="submit">
         Send Message
       </button>
     </form>
