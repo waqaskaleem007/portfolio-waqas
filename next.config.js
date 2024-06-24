@@ -12,9 +12,9 @@ const nextConfig = {
       // eslint-disable-next-line no-param-reassign
       rule.include = undefined;
     });
-
     return config;
   },
+  output: "export",
   compress: true,
   generateEtags: true,
   pageExtensions: ['tsx', 'mdx', 'ts'],
