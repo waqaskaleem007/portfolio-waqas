@@ -10,11 +10,7 @@
   },
   "plugins": ["@typescript-eslint", "simple-import-sort", "import", "react", "react-memo", "react-hooks"],
   "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@next/next/recommended",
-    "prettier"
+    "next"
   ],
   "ignorePatterns": ["*/public", "*/node_modules/*", "*/.next/*", "*/dist/*"],
   "rules": {
@@ -44,6 +40,7 @@
     "react/jsx-sort-props": "error",
     "react/react-in-jsx-scope": "off",
     "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off",
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": "error",
     "sort-imports": "off",
