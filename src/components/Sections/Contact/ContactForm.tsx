@@ -33,8 +33,6 @@ const ContactForm: FC = memo(() => {
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
-      
-    },
     [data],
   );
 
