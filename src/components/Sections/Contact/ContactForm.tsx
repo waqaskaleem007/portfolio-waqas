@@ -1,5 +1,6 @@
 import {FC, memo, useCallback, useMemo, useState} from 'react';
 
+
 interface FormData {
   name: string;
   email: string;
@@ -24,15 +25,29 @@ const ContactForm: FC = memo(() => {
 
       const fieldData: Partial<FormData> = {[name]: value};
 
-      setData(prevData => ({...prevData, ...fieldData}));
+      setData({...data, ...fieldData});
     },
-    [],
+    [data],
   );
 
   const handleSendMessage = useCallback(
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-
+      // try {
+      //   const result = await emailjs.send(
+      //     'service_4o9dphe',
+      //     'template_u835whk',
+      //     data as unknown as Record<string, unknown>,
+      //     'thHbgF4RAXeUQfeuL',
+      //   );
+      //   console.log('Email sent successfully:', result.text);
+      //   alert('Email sent successfully!');
+      // } catch (error) {
+      //   console.error('Failed to send email:', error);
+      //   alert('Failed to send email.');
+      // }
+      console.log('Data to send: ', data);
+    },
     [data],
   );
 
